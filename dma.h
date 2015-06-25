@@ -98,22 +98,28 @@ typedef struct
 } __attribute__((packed)) dma_t;
 
 
-#define DMA0                                     (0x20007000)  // 0x7e007000
-#define DMA1                                     (0x20007100)
-#define DMA2                                     (0x20007200)
-#define DMA3                                     (0x20007300)
-#define DMA4                                     (0x20007400)
-#define DMA5                                     (0x20007500)
-#define DMA6                                     (0x20007600)
-#define DMA7                                     (0x20007700)
-#define DMA8                                     (0x20007800)
-#define DMA9                                     (0x20007900)
-#define DMA10                                    (0x20007a00)
-#define DMA11                                    (0x20007b00)
-#define DMA12                                    (0x20007c00)
-#define DMA13                                    (0x20007d00)
-#define DMA14                                    (0x20007e00)
-#define DMA15                                    (0x20e05000)
+#ifndef RPI2
+ #define DMA_BASE				 (0x3F000000)
+#else
+ #define DMA_BASE				 (0x20000000)
+#endif //RPI2
+
+#define DMA0                                     (0x7000|DMA_BASE)  // 0x7e007000
+#define DMA1                                     (0x7100|DMA_BASE)
+#define DMA2                                     (0x7200|DMA_BASE)
+#define DMA3                                     (0x7300|DMA_BASE)
+#define DMA4                                     (0x7400|DMA_BASE)
+#define DMA5                                     (0x7500|DMA_BASE)
+#define DMA6                                     (0x7600|DMA_BASE)
+#define DMA7                                     (0x7700|DMA_BASE)
+#define DMA8                                     (0x7800|DMA_BASE)
+#define DMA9                                     (0x7900|DMA_BASE)
+#define DMA10                                    (0x7a00|DMA_BASE)
+#define DMA11                                    (0x7b00|DMA_BASE)
+#define DMA12                                    (0x7c00|DMA_BASE)
+#define DMA13                                    (0x7d00|DMA_BASE)
+#define DMA14                                    (0x7e00|DMA_BASE)
+#define DMA15                                    (0xe05000|DMA_BASE)
 
 
 #define PAGE_SIZE                                (1 << 12)
